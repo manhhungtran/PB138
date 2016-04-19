@@ -1,4 +1,4 @@
-**Publication date:** 12. week of the semester 
+**Publication date:** 19.4.2016
 
 **Submission deadline:** DUNNO
 
