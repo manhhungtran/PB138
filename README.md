@@ -17,7 +17,7 @@ For inspiration https://familysearch.org/family-trees
 // TODO
 
 
-==================================================
+======================================
 ## ZADÁNÍ
 https://is.muni.cz/auth/el/1433/jaro2016/PB138/op/Hodnoceni_vyuky_a_organizace_projektu.html
 
@@ -51,16 +51,15 @@ Před obhajobou projektu musí být na www stránky projektu umístěny aktuáln
 
 ### How solution should work?
 Mainly whole implementation should be in Java, HTML,CSS and Javascript
-We should consider using 
-    Sring JDBC framework for java
-    some CSS framework ?
-    Grunt, Node.js for javascript
+* We should consider using 
+..* Sring JDBC framework for java
+..* some CSS framework ?
+..* Grunt, Node.js for javascript
     
 Also should we read data from XML or from the database? 
 
-
 ### TODOS
-ALL - figure out login and security, CREATE GITLAB ACCOUNT PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-Martin - sort out doumentation and style displaying members 
-Daniel + Nicol - create basic backend for our application (CRUD, servlets, listeners in web app,...)
-Hung - create design and front end of the application
+* ALL - figure out login and security, CREATE GITLAB ACCOUNT PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n
+* Martin - sort out doumentation and style displaying members 
+* Daniel + Nicol - create basic backend for our application (CRUD, servlets, listeners in web app,...)
+* Hung - create design and front end of the application
