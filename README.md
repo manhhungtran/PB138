@@ -51,10 +51,10 @@ Před obhajobou projektu musí být na www stránky projektu umístěny aktuáln
 
 ### How solution should work?
 Mainly whole implementation should be in Java, HTML,CSS and Javascript
-* We should consider using 
-..* Sring JDBC framework for java
-..* some CSS framework ?
-..* Grunt, Node.js for javascript
+.. We should consider using 
+.. Sring JDBC framework for java
+.. some CSS framework ?
+.. Grunt, Node.js for javascript
     
 Also should we read data from XML or from the database? 
 
