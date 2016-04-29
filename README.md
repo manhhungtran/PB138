@@ -7,15 +7,35 @@ Genealogic web application
 Whole documentation will be in english!
 For inspiration https://familysearch.org/family-trees
 
+## For teachers
+A lot of instruction were unclear and even no one response in PB138 forum. Therefore many decissions were contributed with our judgment.
+
 ## General information
-// TODO
+Create web application that works with family tree. 
 
 ## Project structure
-// TODO
+Design should be responsive and project should contain login.
+
+## How solution should work?
+Mainly whole implementation should be in Java, HTML,CSS and Javascript
+* We should consider using 
+ * Sring JDBC framework for java
+ * some CSS framework ?
+ * Grunt, Node.js for javascript
 
 ## Authors
-// TODO
+* ALL - figure out login and security, CREATE GITLAB ACCOUNT PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* Martin - sort out doumentation and style displaying members (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* Daniel + Nicol - create basic backend for our application (CRUD, servlets, listeners in web app,...)
+* Hung - create design and front end of the application
 
+>>> Manh Hung Tran, učo 433556, FI B-AP BcAP [sem 4, roč 2]
+>>> Dan Polanský, učo 433716, FI B-AP BcAP [sem 4, roč 2]
+>>> Nikola Šedivcová, učo 433396, FI B-IN PSZD [sem 4, roč 2]
+>>> Tran Hai Duonng, učo 445437, FI B-AP BcAP [sem 2, roč 1]
+
+## Meetings
+3.5.2016 14:00 CP room
 
 ======================================
 ## ZADÁNÍ
@@ -45,21 +65,3 @@ Na obhajobu jednoho projektu je k dispozici 20 minut včetně dotazů i diskuse.
 Dejte si pozor, ať nezacházíte do zbytečných technických detailů. Zmínit se o konkrétních problémech, které bylo nutné vyřešit, je samozřejmě důležité, nicméně popisovat dlouhé popisovače aplikací ve formátu XML není dobrá strategie obhajoby.
 
 Před obhajobou projektu musí být na www stránky projektu umístěny aktuální informace, finální verze programové části, dokumentace a zprávy k projektům. Na stránkách nesmí chybět ani všechny použité knihovny a jiné nástroje, které jsou potřebné pro překlad či používání nástroje. Samozřejmě není nutné přidávat instalační balíky s JDK nebo JRE.
-
-======================================================
-## Instruction for people in the project:
-
-### How solution should work?
-Mainly whole implementation should be in Java, HTML,CSS and Javascript
-* We should consider using 
- * Sring JDBC framework for java
- * some CSS framework ?
- * Grunt, Node.js for javascript
-    
-Also should we read data from XML or from the database? 
-
-### TODOS
-* ALL - figure out login and security, CREATE GITLAB ACCOUNT PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-* Martin - sort out doumentation and style displaying members (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-* Daniel + Nicol - create basic backend for our application (CRUD, servlets, listeners in web app,...)
-* Hung - create design and front end of the application
