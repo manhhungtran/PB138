@@ -32,7 +32,7 @@ Mainly whole implementation should be in Java, HTML,CSS and Javascript
 >>> Manh Hung Tran, učo 433556, FI B-AP BcAP [sem 4, roč 2]
 >>> Dan Polanský, učo 433716, FI B-AP BcAP [sem 4, roč 2]
 >>> Nikola Šedivcová, učo 433396, FI B-IN PSZD [sem 4, roč 2]
->>> Tran Hai Duonng, učo 445437, FI B-AP BcAP [sem 2, roč 1]
+>>> Hai Duong Tran, učo 445437, FI B-AP BcAP [sem 2, roč 1]
 
 ## Meetings
 3.5.2016 14:00 CP room
