@@ -4,7 +4,7 @@
 
 Genealogic web application
 ====================================
-Whole documentation will be in english!
+## Web pages: http://manhhungtran.github.io/PB138/
 For inspiration https://familysearch.org/family-trees
 
 ## For teachers
