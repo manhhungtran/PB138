@@ -4,24 +4,17 @@
 
 Genealogic web application
 ====================================
+
 ## Web pages: http://manhhungtran.github.io/PB138/
-For inspiration https://familysearch.org/family-trees
 
 ## For teachers
 A lot of instruction were unclear and even no one response in PB138 forum. Therefore many decissions were contributed with our judgment.
 
 ## General information
-Create web application that works with family tree. 
+Create web application that works with family tree. For inspiration https://familysearch.org/family-trees
 
 ## Project structure
 Design should be responsive and project should contain login.
-
-## How solution should work?
-Mainly whole implementation should be in Java, HTML,CSS and Javascript
-* We should consider using 
- * Sring JDBC framework for java
- * some CSS framework ?
- * Grunt, Node.js for javascript
 
 ## Authors
 * ALL - figure out login and security, CREATE GITLAB ACCOUNT PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
