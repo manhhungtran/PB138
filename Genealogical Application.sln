@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA Layer", "DA Layer\DA Layer.csproj", "{FACC7828-FC8B-42C1-BC76-8498E97046AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B Layer", "B Layer\B Layer.csproj", "{B1C85051-DF80-4F6E-9EDE-2BF758097C38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A Layer", "A Layer\A Layer.csproj", "{86AC6DC2-B4AA-47F9-A9BC-EFFF7E75C091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P Layer", "P Layer\P Layer.csproj", "{A89C3278-5DB0-4E43-B4F8-EB9A51ADD0D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{86AC6DC2-B4AA-47F9-A9BC-EFFF7E75C091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86AC6DC2-B4AA-47F9-A9BC-EFFF7E75C091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86AC6DC2-B4AA-47F9-A9BC-EFFF7E75C091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A89C3278-5DB0-4E43-B4F8-EB9A51ADD0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A89C3278-5DB0-4E43-B4F8-EB9A51ADD0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A89C3278-5DB0-4E43-B4F8-EB9A51ADD0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A89C3278-5DB0-4E43-B4F8-EB9A51ADD0D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
