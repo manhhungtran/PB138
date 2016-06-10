@@ -22,10 +22,10 @@ namespace B_Layer.Facades
             userManager.Create(appUser, userDTO.Password);
         }
 
-        public ClaimsIdentity Login(string email, string password)
+        public ClaimsIdentity Login(string userName, string password)
         {
             var userManager = new AppUserManager(new AppUserStore(new AppDbContext()));
-            var wantedUser = userManager.FindByEmail(email);
+            var wantedUser = userManager.FindByName(userName);
 
             if (wantedUser == null)
             {

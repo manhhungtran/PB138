@@ -64,19 +64,19 @@ namespace A_Layer
 
             //personFacade.SetPartner(person3, person4);
 
-            StringBuilder str = new StringBuilder();
-            foreach (var person in personFacade.GetAllPeople())
-            {
-                str.Append(person)
-                    .Append("| Mother: ")
-                    .Append(person.MotherId?.ToString() ?? "Unknown")
-                    .Append("| Father: ")
-                    .Append(person.FatherId?.ToString() ?? "Unknown")
-                    .Append("| Partner: ")
-                    .Append(person.PartnerId?.ToString() ?? "Unknown")
-                    .Append(Environment.NewLine);
-            }
-            Console.WriteLine(str.ToString());
+            //StringBuilder str = new StringBuilder();
+            //foreach (var person in personFacade.GetAllPeople())
+            //{
+            //    str.Append(person)
+            //        .Append("| Mother: ")
+            //        .Append(person.MotherId?.ToString() ?? "Unknown")
+            //        .Append("| Father: ")
+            //        .Append(person.FatherId?.ToString() ?? "Unknown")
+            //        .Append("| Partner: ")
+            //        .Append(person.PartnerId?.ToString() ?? "Unknown")
+            //        .Append(Environment.NewLine);
+            //}
+            //Console.WriteLine(str.ToString());
         }
     }
 }
