@@ -12,8 +12,8 @@
     }).ToList();
     fathers.Add(new SelectListItem()
     {
-        Value = "nothing",
-        Text = "(no father)",
+        Value = Model.FatherId == null ? "nothing" : Model.FatherId.ToString(),
+        Text = "(without changes)",
         Selected = true
     });
 
@@ -25,8 +25,8 @@
 
     mothers.Add(new SelectListItem()
     {
-        Value = "nothing",
-        Text = "(no mother)",
+        Value = Model.MotherId == null ? "nothing" : Model.MotherId.ToString(),
+        Text = "(without changes)",
         Selected = true
     });
 }
@@ -56,16 +56,16 @@
 
     @Html.LabelFor(model => model.DeathDate)
     @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
-    
+
     @Html.LabelFor(model => model.MotherId)
     @Html.DropDownListFor(model => model.MotherId, mothers, new { htmlAttributes = new { @class = "settings_input" } })
 
     @Html.LabelFor(model => model.FatherId)
-    @Html.DropDownListFor(model => model.FatherId, fathers, new { htmlAttributes = new { @class = "settings_input" }})
+    @Html.DropDownListFor(model => model.FatherId, fathers, new { htmlAttributes = new { @class = "settings_input" } })
 
-    <input type="submit" value="Create" class="button" />
+    <input type="submit" value="Edit" class="button" />
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Listing")
+    @Html.ActionLink("Back to List", "Table")
 </div>
