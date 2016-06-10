@@ -1,31 +1,116 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿<div id="error_msg">
+    Mistakes were made nigga.
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<h1>Add new person</h1>
+<form method="POST" class="settings">
+    <h2>Name:</h2><input name="name" type="text" class="settings_input"><br>
+    <h2>Surname:</h2><input name="surname" type="text" class="settings_input"><br>
+    <h2>Date birth:</h2><input name="birthdate" type="date" class="settings_input"><br>
+    <h2>Death date:</h2><input name="deathdate" type="date" class="settings_input"><br>
+    <h2>Mother:</h2>
+    <select name="mother" class="settings_input" onmousewheel="return false">
+        <option value="1">Jarmilka</option>
+        <option value="2">Naděžda</option>
+    </select><br>
+    <h2>Father:</h2>
+    <select name="father" class="settings_input" onmousewheel="return false">
+        <option value="1">Jindra</option>
+        <option value="2">Aleš</option>
+    </select><br>
+    <h2>Partner:</h2>
+    <select name="Partner" class="settings_input" onmousewheel="return false">
+        <option value="-420">(No one)</option>
+        <option value="1">Jindra</option>
+    </select><br>
+    <h2>Sex:</h2>
+    <select name="sex" class="settings_input" onmousewheel="return false">
+        <option value="true">Man</option>
+        <option value="false">Woman</option>
+    </select><br>
+    <input type=submit value='Confirm' class=button>
+</form>
+
+<h1>Password</h1>
+<form method="POST" class="settings">
+    <h2>Old password:</h2><input name="oldpassword" type="password" class="settings_input"><br>
+    <h2>New password:</h2><input name="newpassword" type="password" class="settings_input"><br>
+    <h2>New password again:</h2><input name="newpasswordagain" type="password" class="settings_input"><br>
+    <input type=submit value='Confirm' class=button>
+</form>
+
+<h1>Register:</h1>
+<form method="POST" class="settings">
+    <h2>Email:</h2><input name="email" type="email" class="settings_input"><br>
+    <h2>Password:</h2><input name="password" type="password" class="settings_input"><br>
+    <h2>Password again:</h2><input name="passwordagain" type="password" class="settings_input"><br>
+    <input type=submit value='Confirm' class=button>
+</form>
+
+<div class="border_item" title="Home">
+    <i class="fa fa-home fa-5x"></i>Home
 </div>
+
+<div class="border_item" title="View graph">
+    <i class="fa fa-file fa-5x"></i>Graph
+</div>
+
+<div class="border_item" title="View table">
+    <i class="fa fa-comments fa-5x"></i>Table
+</div>
+
+<div class="border_item" title="Settings">
+    <i class="fa fa-cog fa-5x"></i>Settings
+</div>
+
+<div class="border_item" title="Log out">
+    <i class="fa fa-cog fa-5x"></i>Logout
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Date birth</th>
+        <th>Mother's name</th>
+        <th>Father's name</th>
+        <th style="width: 10%">Death date</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>Pepík</td>
+        <td>Svoboda</td>
+        <td>2.2.1994</td>
+        <td>Mařenka</td>
+        <td>Otík</td>
+        <td> </td>
+        <td>
+            <input type="submit" value="Detail" class="button">
+        </td>
+        <td>
+            <input type="submit" value="Delete" class="button">
+        </td>
+        <td>
+            <input type="submit" value="Update" class="button">
+        </td>
+    </tr>
+    <tr>
+        <td>Pepík</td>
+        <td>Svoboda</td>
+        <td>2.2.1994</td>
+        <td>Mařenka</td>
+        <td>Otík</td>
+        <td> </td>
+        <td>
+            <input type="submit" value="Detail" class="button">
+        </td>
+        <td>
+            <input type="submit" value="Delete" class="button">
+        </td>
+        <td>
+            <input type="submit" value="Update" class="button">
+        </td>
+    </tr>
+</table>
+<br/>
