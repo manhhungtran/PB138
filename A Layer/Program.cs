@@ -60,17 +60,20 @@ namespace A_Layer
             person4.FatherId = 1;
             person4.MotherId = 2;
 
+            personFacade.DeletePerson(3);
+
+            //personFacade.SetPartner(person3, person4);
+
             StringBuilder str = new StringBuilder();
             foreach (var person in personFacade.GetAllPeople())
             {
-                var mother = personFacade.GetMother(person);
-                var father = personFacade.GetFather(person);
-
                 str.Append(person)
                     .Append("| Mother: ")
-                    .Append(mother?.ToString() ?? "Unknown")
+                    .Append(person.MotherId?.ToString() ?? "Unknown")
                     .Append("| Father: ")
-                    .Append(father?.ToString() ?? "Unknown")
+                    .Append(person.FatherId?.ToString() ?? "Unknown")
+                    .Append("| Partner: ")
+                    .Append(person.PartnerId?.ToString() ?? "Unknown")
                     .Append(Environment.NewLine);
             }
             Console.WriteLine(str.ToString());

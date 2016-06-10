@@ -64,6 +64,11 @@
     <Compile Include="DTO\PersonDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Facades\PersonFacade.cs" />
+    <Compile Include="Facades\UserFacade.cs" />
+    <Compile Include="ManagersAndStores\AppRoleManager.cs" />
+    <Compile Include="ManagersAndStores\AppRoleStore.cs" />
+    <Compile Include="ManagersAndStores\AppUserManager.cs" />
+    <Compile Include="ManagersAndStores\AppUserStore.cs" />
     <Compile Include="Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

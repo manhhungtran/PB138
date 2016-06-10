@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201605241011131_newSchema.Designer.cs">
       <DependentUpon>201605241011131_newSchema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606101011129_entity_person_changed.cs" />
+    <Compile Include="Migrations\201606101011129_entity_person_changed.Designer.cs">
+      <DependentUpon>201606101011129_entity_person_changed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605241011131_newSchema.resx">
       <DependentUpon>201605241011131_newSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101011129_entity_person_changed.resx">
+      <DependentUpon>201606101011129_entity_person_changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

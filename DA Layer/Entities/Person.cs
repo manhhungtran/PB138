@@ -20,10 +20,13 @@ namespace DA_Layer.Entities
         public string Surname { get; set; }
         [Required]
         public bool IsMale { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public DateTime? DeathDate { get; set; }
 
         public int? MotherId { get; set; }
-        public int? FatherId { get; set; }      
+        public int? FatherId { get; set; }     
+        public int? PartnerId { get; set; } 
+
+        public int UserId { get; set; }
     }
 }

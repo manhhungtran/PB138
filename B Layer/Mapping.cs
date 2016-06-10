@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using B_Layer.DTO;
 using DA_Layer.Entities;
+using DA_Layer.IdentityEntities;
 
 namespace B_Layer
 {
@@ -18,8 +19,12 @@ namespace B_Layer
             {
                 c.CreateMap<Person, PersonDTO>()
                     .ReverseMap();
-
                 c.CreateMap<PersonDTO, Person>()
+                    .ReverseMap();
+
+                c.CreateMap<AppUser, UserDTO>()
+                    .ReverseMap();
+                c.CreateMap<UserDTO, AppUser>()
                     .ReverseMap();
             });
             Mapper = config.CreateMapper();

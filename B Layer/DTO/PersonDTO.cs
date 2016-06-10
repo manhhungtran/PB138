@@ -17,11 +17,14 @@ namespace B_Layer.DTO
         public string Surname { get; set; }
         [Required]
         public bool IsMale { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public DateTime? DeathDate { get; set; }
 
         public int? MotherId { get; set; }
         public int? FatherId { get; set; }
+        public int? PartnerId { get; set; }
+
+        public int UserId { get; set; }
 
         public override string ToString()
         {
