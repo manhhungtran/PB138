@@ -123,31 +123,27 @@ namespace B_Layer.Facades
             }
         }
 
-        public void SetMother(PersonDTO personDTO, PersonDTO motherDTO)
+        public void SetMother(int personId, int motherId)
         {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
-            if (personDTO.MotherId != null) {throw new InvalidOperationException("Person " + personDTO
-                + " already has Mother"); }
-
-            if (motherDTO == null) { throw new ArgumentNullException(nameof(motherDTO)); }
-            if (motherDTO.IsMale) { throw new InvalidOperationException("Mother must be female"); }
+            if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
+            if (motherId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + motherId); }
 
             using (var context = new AppDbContext())
             {
                 context.Database.Log = Console.WriteLine;
                 var person = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.Id);
+                    .FirstOrDefault(c => c.Id == personId);
                 var mother = context.People
-                    .FirstOrDefault(c => c.Id == motherDTO.Id);
+                    .FirstOrDefault(c => c.Id == motherId);
 
                 if (person == null)
                 {
-                    throw new InvalidOperationException("Person " + personDTO
+                    throw new InvalidOperationException("Person " + personId
                         + " was not found in database");
                 }
                 if (mother == null)
                 {
-                    throw new InvalidOperationException("Person " + motherDTO
+                    throw new InvalidOperationException("Person " + motherId
                         + " was not found in database");
                 }
 
@@ -156,33 +152,35 @@ namespace B_Layer.Facades
             }
         }
 
-        public PersonDTO GetMother(PersonDTO personDTO)
+        public PersonDTO GetMother(int personId)
         {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
-
-            using (var context = new AppDbContext())
-            {
-                context.Database.Log = Console.WriteLine;
-                var father = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.MotherId);
-
-                return Mapping.Mapper.Map<PersonDTO>(father);
-            }
-        }
-
-        public void RemoveMother(PersonDTO personDTO)
-        {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
+            if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
 
             using (var context = new AppDbContext())
             {
                 context.Database.Log = Console.WriteLine;
                 var person = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.Id);
+                    .FirstOrDefault(c => c.Id == personId);
+                var mother = context.People
+                    .FirstOrDefault(c => c.Id == person.MotherId);
+
+                return Mapping.Mapper.Map<PersonDTO>(mother);
+            }
+        }
+
+        public void RemoveMother(int personId)
+        {
+            if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
+
+            using (var context = new AppDbContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var person = context.People
+                    .FirstOrDefault(c => c.Id == personId);
 
                 if (person == null)
                 {
-                    throw new InvalidOperationException("Person " + personDTO
+                    throw new InvalidOperationException("Person " + personId
                         + " was not found in database");
                 }
                 
@@ -191,31 +189,27 @@ namespace B_Layer.Facades
             }
         }
 
-        public void SetFather(PersonDTO personDTO, PersonDTO fatherDTO)
+        public void SetFather(int personId, int fatherId)
         {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
-            if (personDTO.FatherId != null) { throw new InvalidOperationException("Person " + personDTO 
-                + " already has Father"); }
-
-            if (fatherDTO == null) { throw new ArgumentNullException(nameof(fatherDTO)); }
-            if (!fatherDTO.IsMale) { throw new InvalidOperationException("Father must be male"); }
+            if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
+            if (fatherId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + fatherId); }
 
             using (var context = new AppDbContext())
             {
                 context.Database.Log = Console.WriteLine;
                 var person = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.Id);
+                    .FirstOrDefault(c => c.Id == personId);
                 var father = context.People
-                    .FirstOrDefault(c => c.Id == fatherDTO.Id);
+                    .FirstOrDefault(c => c.Id == fatherId);
 
                 if (person == null)
                 {
-                    throw new InvalidOperationException("Person " + personDTO
+                    throw new InvalidOperationException("Person " + personId
                         + " was not found in database");
                 }
                 if (father == null)
                 {
-                    throw new InvalidOperationException("Person " + fatherDTO
+                    throw new InvalidOperationException("Person " + fatherId
                         + " was not found in database");
                 }
                
@@ -224,32 +218,35 @@ namespace B_Layer.Facades
             }
         }
 
-        public PersonDTO GetFather(PersonDTO personDTO)
+        public PersonDTO GetFather(int personId)
         {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
-
-            using (var context = new AppDbContext())
-            {
-                context.Database.Log = Console.WriteLine;
-                var father = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.FatherId);
-                return Mapping.Mapper.Map<PersonDTO>(father);
-            }
-        }
-
-        public void RemoveFather(PersonDTO personDTO)
-        {
-            if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
+            if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
 
             using (var context = new AppDbContext())
             {
                 context.Database.Log = Console.WriteLine;
                 var person = context.People
-                    .FirstOrDefault(c => c.Id == personDTO.Id);
+                    .FirstOrDefault(c => c.Id == personId);
+                var father = context.People
+                    .FirstOrDefault(c => c.Id == person.FatherId);
+
+                return Mapping.Mapper.Map<PersonDTO>(father);
+            }
+        }
+
+        public void RemoveFather(int personId)
+        {
+            if(personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
+
+            using (var context = new AppDbContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var person = context.People
+                    .FirstOrDefault(c => c.Id == personId);
 
                 if (person == null)
                 {
-                    throw new InvalidOperationException("Person " + personDTO
+                    throw new InvalidOperationException("Person " + personId
                         + " was not found in database");
                 }
 
