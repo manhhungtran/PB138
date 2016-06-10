@@ -11,9 +11,10 @@ using P_Layer.Models;
 
 namespace P_Layer.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
-        PersonFacade personFacade = new PersonFacade();
+        readonly PersonFacade _personFacade = new PersonFacade();
 
         public ActionResult Index()
         {
@@ -25,7 +26,7 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult FamilyList()
         {
-            var model = personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()));
+            var model = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()));
 
             return View(model.Select(element => ModelMapping.Mapper.Map<PersonModel>(element)));
         }
@@ -33,7 +34,7 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            var people = personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
             ViewBag.Women = people
@@ -65,7 +66,7 @@ namespace P_Layer.Controllers
                 person.FatherId = fatherId;
             }
 
-            personFacade.CreatePerson(ModelMapping.Mapper.Map<PersonDTO>(person));
+            _personFacade.CreatePerson(ModelMapping.Mapper.Map<PersonDTO>(person));
 
             return RedirectToAction("FamilyList");
         }
@@ -73,7 +74,7 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var person = personFacade.GetPerson(id);
+            var person = _personFacade.GetPerson(id);
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
 
@@ -86,14 +87,14 @@ namespace P_Layer.Controllers
                 return View(person);
             }
 
-            var originalPerson = personFacade.GetPerson(id);
+            var originalPerson = _personFacade.GetPerson(id);
             originalPerson.Name = person.Name;
             originalPerson.Surname = person.Surname;
             originalPerson.IsMale = person.IsMale;
             originalPerson.BirthDate = person.BirthDate;
             originalPerson.DeathDate = person.DeathDate;
 
-            personFacade.UpdatePerson(originalPerson);
+            _personFacade.UpdatePerson(originalPerson);
 
             return RedirectToAction("FamilyList");
         }
@@ -101,23 +102,23 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult Delete(int id)
         {
-            personFacade.DeletePerson(id);
+            _personFacade.DeletePerson(id);
             return RedirectToAction("FamilyList");
         }
 
         [Authorize]
         public ActionResult Details(int id)
         {
-            var person = personFacade.GetPerson(id);
+            var person = _personFacade.GetPerson(id);
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
 
         [Authorize]
         public ActionResult SetPartner(int id)
         {
-            var person = personFacade.GetPerson(id);
+            var person = _personFacade.GetPerson(id);
 
-            var people = personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
             if (person.IsMale)
@@ -147,13 +148,13 @@ namespace P_Layer.Controllers
             bool result = int.TryParse(nvc["partner"], out partnerId);
             if (result)
             {
-                personFacade.SetPartner(id, partnerId);
+                _personFacade.SetPartner(id, partnerId);
             }
             else
             {
-                if (personFacade.GetPerson(id).PartnerId != null)
+                if (_personFacade.GetPerson(id).PartnerId != null)
                 {
-                    personFacade.RemovePartner(ModelMapping.Mapper.Map<PersonDTO>(person));
+                    _personFacade.RemovePartner(ModelMapping.Mapper.Map<PersonDTO>(person));
                 }
             }
 
@@ -163,7 +164,7 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult SetMother(int id)
         {
-            ViewBag.Women = personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+            ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Where(element => element.Id != id && !element.IsMale)
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
                 .ToList();
@@ -182,13 +183,13 @@ namespace P_Layer.Controllers
             bool result = int.TryParse(nvc["woman"], out motherId);
             if (result)
             {
-                personFacade.SetMother(id, motherId);
+                _personFacade.SetMother(id, motherId);
             }
             else
             {
-                if (personFacade.GetPerson(id).MotherId != null)
+                if (_personFacade.GetPerson(id).MotherId != null)
                 {
-                    personFacade.RemoveMother(id);
+                    _personFacade.RemoveMother(id);
                 }
             }
 
@@ -198,7 +199,7 @@ namespace P_Layer.Controllers
         [Authorize]
         public ActionResult SetFather(int id)
         {
-            ViewBag.Women = personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+            ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Where(element => element.Id != id && element.IsMale)
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
                 .ToList();
@@ -217,13 +218,13 @@ namespace P_Layer.Controllers
             bool result = int.TryParse(nvc["woman"], out fatherId);
             if (result)
             {
-                personFacade.SetMother(id, fatherId);
+                _personFacade.SetMother(id, fatherId);
             }
             else
             {
-                if (personFacade.GetPerson(id).FatherId != null)
+                if (_personFacade.GetPerson(id).FatherId != null)
                 {
-                    personFacade.RemoveFather(id);
+                    _personFacade.RemoveFather(id);
                 }
             }
 
