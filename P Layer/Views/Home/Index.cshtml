@@ -1,116 +1,29 @@
-﻿<div id="error_msg">
-    Mistakes were made nigga.
-</div>
+﻿<a href="@Html.Action("Index")">
+    <div class="border_item" title="Home">
+        <i class="fa fa-home fa-5x"></i>Home
+    </div>
+</a>
 
-<h1>Add new person</h1>
-<form method="POST" class="settings">
-    <h2>Name:</h2><input name="name" type="text" class="settings_input"><br>
-    <h2>Surname:</h2><input name="surname" type="text" class="settings_input"><br>
-    <h2>Date birth:</h2><input name="birthdate" type="date" class="settings_input"><br>
-    <h2>Death date:</h2><input name="deathdate" type="date" class="settings_input"><br>
-    <h2>Mother:</h2>
-    <select name="mother" class="settings_input" onmousewheel="return false">
-        <option value="1">Jarmilka</option>
-        <option value="2">Naděžda</option>
-    </select><br>
-    <h2>Father:</h2>
-    <select name="father" class="settings_input" onmousewheel="return false">
-        <option value="1">Jindra</option>
-        <option value="2">Aleš</option>
-    </select><br>
-    <h2>Partner:</h2>
-    <select name="Partner" class="settings_input" onmousewheel="return false">
-        <option value="-420">(No one)</option>
-        <option value="1">Jindra</option>
-    </select><br>
-    <h2>Sex:</h2>
-    <select name="sex" class="settings_input" onmousewheel="return false">
-        <option value="true">Man</option>
-        <option value="false">Woman</option>
-    </select><br>
-    <input type=submit value='Confirm' class=button>
-</form>
+<a href="@Html.Action("Graph")">
+    <div class="border_item" title="View graph">
+        <i class="fa fa-file fa-5x"></i>Graph
+    </div>
+</a>
 
-<h1>Password</h1>
-<form method="POST" class="settings">
-    <h2>Old password:</h2><input name="oldpassword" type="password" class="settings_input"><br>
-    <h2>New password:</h2><input name="newpassword" type="password" class="settings_input"><br>
-    <h2>New password again:</h2><input name="newpasswordagain" type="password" class="settings_input"><br>
-    <input type=submit value='Confirm' class=button>
-</form>
+<a href="@Html.Action("Table")">
+    <div class="border_item" title="View table">
+        <i class="fa fa-comments fa-5x"></i>Table
+    </div>
+</a>
 
-<h1>Register:</h1>
-<form method="POST" class="settings">
-    <h2>Email:</h2><input name="email" type="email" class="settings_input"><br>
-    <h2>Password:</h2><input name="password" type="password" class="settings_input"><br>
-    <h2>Password again:</h2><input name="passwordagain" type="password" class="settings_input"><br>
-    <input type=submit value='Confirm' class=button>
-</form>
+<a href="@Html.Action("ChangePassword", "Manage")">
+    <div class="border_item" title="Settings">
+        <i class="fa fa-cog fa-5x"></i>Settings
+    </div>
+</a>
 
-<div class="border_item" title="Home">
-    <i class="fa fa-home fa-5x"></i>Home
-</div>
-
-<div class="border_item" title="View graph">
-    <i class="fa fa-file fa-5x"></i>Graph
-</div>
-
-<div class="border_item" title="View table">
-    <i class="fa fa-comments fa-5x"></i>Table
-</div>
-
-<div class="border_item" title="Settings">
-    <i class="fa fa-cog fa-5x"></i>Settings
-</div>
-
-<div class="border_item" title="Log out">
-    <i class="fa fa-cog fa-5x"></i>Logout
-</div>
-
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Date birth</th>
-        <th>Mother's name</th>
-        <th>Father's name</th>
-        <th style="width: 10%">Death date</th>
-    </tr>
-    </thead>
-    <tr>
-        <td>Pepík</td>
-        <td>Svoboda</td>
-        <td>2.2.1994</td>
-        <td>Mařenka</td>
-        <td>Otík</td>
-        <td> </td>
-        <td>
-            <input type="submit" value="Detail" class="button">
-        </td>
-        <td>
-            <input type="submit" value="Delete" class="button">
-        </td>
-        <td>
-            <input type="submit" value="Update" class="button">
-        </td>
-    </tr>
-    <tr>
-        <td>Pepík</td>
-        <td>Svoboda</td>
-        <td>2.2.1994</td>
-        <td>Mařenka</td>
-        <td>Otík</td>
-        <td> </td>
-        <td>
-            <input type="submit" value="Detail" class="button">
-        </td>
-        <td>
-            <input type="submit" value="Delete" class="button">
-        </td>
-        <td>
-            <input type="submit" value="Update" class="button">
-        </td>
-    </tr>
-</table>
-<br/>
+<a href="javascript:document.getElementById('logoutForm').submit()">
+    <div class="border_item" title="Log out">
+        <i class="fa fa-cog fa-5x"></i>Logout
+    </div>
+</a>
