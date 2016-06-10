@@ -6,7 +6,7 @@ using System.Linq;
 using B_Layer.DTO;
 using DA_Layer;
 using DA_Layer.Entities;
-
+ 
 namespace B_Layer.Facades
 {
     public class PersonFacade
