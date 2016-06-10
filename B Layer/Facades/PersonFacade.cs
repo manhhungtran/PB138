@@ -56,10 +56,11 @@ namespace B_Layer.Facades
             {
                 var students = context.People
                     .Select(person => person.UserId == id)
-                    .Select(person => Mapping.Mapper.Map<PersonDTO>(person))
                     .ToList();
 
-                return students;
+                return students
+                    .Select(person => Mapping.Mapper.Map<PersonDTO>(person))
+                    .ToList();
             }
         }
 

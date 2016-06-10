@@ -1,29 +1,29 @@
-﻿<a href="@Html.Action("Index")">
+﻿<a href="@Url.Action("Index","Home")">
     <div class="border_item" title="Home">
         <i class="fa fa-home fa-5x"></i>Home
     </div>
 </a>
 
-<a href="@Html.Action("Graph")">
+<a href="@Url.Action("Graph", "Home")">
     <div class="border_item" title="View graph">
         <i class="fa fa-file fa-5x"></i>Graph
     </div>
 </a>
 
-<a href="@Html.Action("Table")">
+<a href="@Url.Action("Table", "Home")">
     <div class="border_item" title="View table">
         <i class="fa fa-comments fa-5x"></i>Table
     </div>
 </a>
 
-<a href="@Html.Action("ChangePassword", "Manage")">
+<a href="@Url.Action("ChangePassword", "Manage")">
     <div class="border_item" title="Settings">
         <i class="fa fa-cog fa-5x"></i>Settings
     </div>
 </a>
 
-@*<a href="javascript:document.getElementById('logoutForm').submit()">
+<a href="javascript:document.getElementById('logoutForm').submit()">
     <div class="border_item" title="Log out">
         <i class="fa fa-cog fa-5x"></i>Logout
     </div>
-</a>*@
+</a>

@@ -6,7 +6,9 @@
 
 body    
 {
+    color:white;
     font-family:Helvetica;
+    margin: 0px 0px 0px 0px;
     background-image: url('http://ioka.cz/bg.gif');
     background-repeat: repeat;
     -o-transition: all 250ms;
@@ -14,8 +16,6 @@ body
     -webkit-transition: all 250ms;
     -ms-transition: all 250ms;
     transition: all 250ms;
-    margin: 0px 0px 0px 0px;
-    color:white;
 }
 
 a

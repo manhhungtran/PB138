@@ -23,15 +23,13 @@ namespace P_Layer.Controllers
 
 
         // GET: Family
-        [Authorize]
-        public ActionResult FamilyList()
+        public ActionResult Table()
         {
             var model = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()));
 
             return View(model.Select(element => ModelMapping.Mapper.Map<PersonModel>(element)));
         }
-
-        [Authorize]
+        
         public ActionResult Create()
         {
             var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
@@ -46,7 +44,7 @@ namespace P_Layer.Controllers
             return View();
         }
 
-        [Authorize]
+        [HttpPost]
         public ActionResult Create(PersonModel person)
         {
             NameValueCollection nvc = Request.Form;
@@ -68,17 +66,15 @@ namespace P_Layer.Controllers
 
             _personFacade.CreatePerson(ModelMapping.Mapper.Map<PersonDTO>(person));
 
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
-
-        [Authorize]
+        
         public ActionResult Edit(int id)
         {
             var person = _personFacade.GetPerson(id);
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
-
-        [Authorize]
+        
         [HttpPost]
         public ActionResult Edit(int id, PersonModel person)
         {
@@ -96,24 +92,21 @@ namespace P_Layer.Controllers
 
             _personFacade.UpdatePerson(originalPerson);
 
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
-
-        [Authorize]
+        
         public ActionResult Delete(int id)
         {
             _personFacade.DeletePerson(id);
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
-
-        [Authorize]
+        
         public ActionResult Details(int id)
         {
             var person = _personFacade.GetPerson(id);
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
-
-        [Authorize]
+        
         public ActionResult SetPartner(int id)
         {
             var person = _personFacade.GetPerson(id);
@@ -136,8 +129,7 @@ namespace P_Layer.Controllers
 
             return View();
         }
-
-        [Authorize]
+        
         [HttpPost]
         public ActionResult SetPartner(int id, PersonModel person)
         {
@@ -158,10 +150,9 @@ namespace P_Layer.Controllers
                 }
             }
 
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
-
-        [Authorize]
+        
         public ActionResult SetMother(int id)
         {
             ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
@@ -171,8 +162,7 @@ namespace P_Layer.Controllers
 
             return View();
         }
-
-        [Authorize]
+        
         [HttpPost]
         public ActionResult SetMother(int id, PersonModel person)
         {
@@ -193,10 +183,9 @@ namespace P_Layer.Controllers
                 }
             }
 
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
-
-        [Authorize]
+        
         public ActionResult SetFather(int id)
         {
             ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
@@ -206,8 +195,7 @@ namespace P_Layer.Controllers
 
             return View();
         }
-
-        [Authorize]
+        
         [HttpPost]
         public ActionResult SetFather(int id, PersonModel person)
         {
@@ -228,7 +216,7 @@ namespace P_Layer.Controllers
                 }
             }
 
-            return RedirectToAction("FamilyList");
+            return RedirectToAction("Table");
         }
 
 

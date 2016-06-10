@@ -18,9 +18,9 @@ namespace B_Layer
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<Person, PersonDTO>()
-                    .ReverseMap();
+                    .ForMember(dest => dest.IsMale, opt => opt.MapFrom(src => src.IsMale));
                 c.CreateMap<PersonDTO, Person>()
-                    .ReverseMap();
+                    .ForMember(dest => dest.IsMale, opt => opt.MapFrom(src => src.IsMale));
 
                 c.CreateMap<AppUser, UserDTO>()
                     .ReverseMap();
