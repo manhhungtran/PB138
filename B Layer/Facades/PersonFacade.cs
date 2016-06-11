@@ -11,6 +11,10 @@ namespace B_Layer.Facades
 {
     public class PersonFacade
     {
+        /// <summary>
+        /// Method CrreatePerson creates Person and inserts it to database
+        /// </summary>
+        /// <param name="person">Person to be created</param>
         public void CreatePerson(PersonDTO person)
         {
             if (person == null) { throw new ArgumentNullException(nameof(person)); }
@@ -30,6 +34,11 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method GetPerson retrieves Person from database based on id
+        /// </summary>
+        /// <param name="id">ID of wanted Person</param>
+        /// <returns>PersonDTO of found Person</returns>
         public PersonDTO GetPerson(int id)
         {
             if (id <= 0) { throw new ArgumentException("Id must be greater than 0, was " + id); }
@@ -50,6 +59,11 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method GetAllPeople retrieves all people from database, depending on currently logged user
+        /// </summary>
+        /// <param name="id">ID of currently logged user</param>
+        /// <returns>List of people</returns>
         public List<PersonDTO> GetAllPeople(int id)
         {
             using (var context = new AppDbContext())
@@ -64,6 +78,10 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method UpdatePerson updates person in database
+        /// </summary>
+        /// <param name="person">Person to be updated</param>
         public void UpdatePerson(PersonDTO person)
         {
             if (person == null) { throw new ArgumentNullException(nameof(person)); }
@@ -77,6 +95,10 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method DeletePerson deletes person from database
+        /// </summary>
+        /// <param name="id">ID of Person to be deleted</param>
         public void DeletePerson(int id)
         {
             if (id <= 0) { throw new ArgumentException("ID must be greater than 0, was " + id); }
@@ -124,6 +146,11 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="personId"></param>
+        /// <param name="motherId"></param>
         public void SetMother(int personId, int motherId)
         {
             if (personId <= 0) { throw new ArgumentException("ID must be greater than 0, was " + personId); }
@@ -374,6 +401,11 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method SetPartner sets partner to person based on personId and vice versa
+        /// </summary>
+        /// <param name="personId">ID of the first person</param>
+        /// <param name="partnerId">ID of the second person</param>
         public void SetPartner(int personId, int partnerId)
         {
             if (personId <= 0) { throw new ArgumentException("Id must be greater than 0, was " + personId); }
@@ -417,6 +449,10 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="personDTO"></param>
         public void RemovePartner(PersonDTO personDTO)
         {
             if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }

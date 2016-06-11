@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace P_Layer.Models
 {
@@ -16,13 +17,16 @@ namespace P_Layer.Models
         public string Surname { get; set; }
         [Required]
         public bool IsMale { get; set; }
+        [JsonIgnore]
         public DateTime? BirthDate { get; set; }
+        [JsonIgnore]
         public DateTime? DeathDate { get; set; }
 
         public int? MotherId { get; set; }
         public int? FatherId { get; set; }
         public int? PartnerId { get; set; }
 
+        [JsonIgnore]
         public int UserId { get; set; }
     }
 }

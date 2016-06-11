@@ -194,18 +194,17 @@ namespace P_Layer.Controllers
         public ActionResult Graph()
         {
             var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
-                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
+                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
+                .ToList();
                 
             return View(JsonSerialize(people));
         }
 
-
-        private static string JsonSerialize(object o)
+        private static string JsonSerialize(List<PersonModel> people)
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            settings.NullValueHandling = NullValueHandling.Ignore;
+            JsonSerializerSettings settings = new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore};
 
-            return JsonConvert.SerializeObject(o, settings);
+            return JsonConvert.SerializeObject(people, settings);
         }
 
         public ActionResult XML()
