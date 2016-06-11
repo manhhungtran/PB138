@@ -90,6 +90,11 @@ namespace B_Layer.Facades
             using (var context = new AppDbContext())
             {
                 context.Database.Log = Console.WriteLine;
+                if (personToBeUpdated.PartnerId != null)
+                {
+                    Person partner = context.People.Find(personToBeUpdated.PartnerId);
+                    partner.PartnerId = person.Id;
+                }
                 context.Entry(personToBeUpdated).State = EntityState.Modified;
                 context.SaveChanges();
             }

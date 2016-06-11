@@ -103,6 +103,7 @@ namespace P_Layer.Controllers
 
             int motherId;
             int fatherId;
+            int partnerId;
 
             bool result = int.TryParse(nvc["woman"], out motherId);
             if (result)
@@ -122,6 +123,16 @@ namespace P_Layer.Controllers
             else
             {
                 originalPerson.FatherId = null;
+            }
+
+            result = int.TryParse(nvc["partner"], out partnerId);
+            if (result)
+            {
+                originalPerson.PartnerId = fatherId;
+            }
+            else
+            {
+                originalPerson.PartnerId = null;
             }
 
             originalPerson.Name = person.Name;
@@ -145,52 +156,6 @@ namespace P_Layer.Controllers
         {
             var person = _personFacade.GetPerson(id);
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
-        }
-        
-        public ActionResult SetPartner(int id)
-        {
-            var person = _personFacade.GetPerson(id);
-
-            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
-                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
-
-            if (person.IsMale)
-            {
-                ViewBag.Partners = people
-                    .Where(partner => partner.IsMale)
-                    .ToList();
-            }
-            else
-            {
-                ViewBag.Partners = people
-                    .Where(partner => !partner.IsMale)
-                    .ToList();
-            }
-
-            return View();
-        }
-        
-        [HttpPost]
-        public ActionResult SetPartner(int id, PersonModel person)
-        {
-            NameValueCollection nvc = Request.Form;
-
-            int partnerId;
-
-            bool result = int.TryParse(nvc["partner"], out partnerId);
-            if (result)
-            {
-                _personFacade.SetPartner(id, partnerId);
-            }
-            else
-            {
-                if (_personFacade.GetPerson(id).PartnerId != null)
-                {
-                    _personFacade.RemovePartner(ModelMapping.Mapper.Map<PersonDTO>(person));
-                }
-            }
-
-            return RedirectToAction("Table");
         }
 
         public ActionResult Graph()
