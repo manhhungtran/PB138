@@ -6,76 +6,117 @@
 </p>
 <h1>@Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Surname)</h1>
 <hr />
-<dl class="dl-horizontal">
-    <dt>
-        @Html.DisplayNameFor(model => model.Name)
-    </dt>
+<br/><br/>
+<table>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Name):
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.Name)
-    </dd>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Surname)
-    </dt>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Surname):
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.Surname)
-    </dd>
+        <td>
+            @Html.DisplayFor(model => model.Surname)
+        </td>
+    </tr>
 
-    <dt>
-        Gender
-    </dt>
+    <tr>
+        <td>
+            <b>
+                Gender:
+            </b>
+        </td>
 
-    <dd>
-        @if (Model.IsMale)
-        {
-            <p>Male</p>
-        }
-        else
-        {
-            <p>Female</p>
-        }
-    </dd>
+        <td>
+            @if (Model.IsMale)
+            {
+                <p>Male</p>
+            }
+            else
+            {
+                <p>Female</p>
+            }
+        </td>
+    </tr>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.BirthDate)
-    </dt>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.BirthDate):
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.BirthDate)
-    </dd>
+        <td>
+            @Html.DisplayFor(model => model.BirthDate)
+        </td>
+    </tr>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.DeathDate)
-    </dt>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.DeathDate):
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.DeathDate)
-    </dd>
+        <td>
+            @Html.DisplayFor(model => model.DeathDate)
+        </td>
+    </tr>
 
-    <dt>
-        Mother
-    </dt>
+    <tr>
+        <td>
+            <b>
+                Mother: 
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.MotherId)
-    </dd>
+        <td>
+            @if (Model.MotherId != null)
+            {
+                @Html.ActionLink("View", "Details", new { id = Model.MotherId })
+            }
+        </td>
+    </tr>
 
-    <dt>
-        Father
-    </dt>
+    <tr>
+        <td>
+            <b>
+                Father: 
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.FatherId)
-    </dd>
+        <td>
+            @if (Model.FatherId != null)
+            {
+                @Html.ActionLink("View", "Details", new { id = Model.FatherId })
+            }
+        </td>
+    </tr>
 
-    <dt>
-        Partner
-    </dt>
+    <tr>
+        <td>
+            <b>
+                Lover: 
+            </b>
+        </td>
 
-    <dd>
-        @Html.DisplayFor(model => model.PartnerId)
-    </dd>
-</dl>
-
+        <td>
+            @if (Model.PartnerId != null)
+            {
+                @Html.ActionLink("View", "Details", new { id = Model.PartnerId })
+            }
+        </td>
+    </tr>
+</table>

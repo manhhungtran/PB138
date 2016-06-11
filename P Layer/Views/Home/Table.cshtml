@@ -13,7 +13,7 @@
             @Html.DisplayNameFor(model => model.Surname)
         </th>
         <th>
-            Sex
+            Gender
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BirthDate)
@@ -41,13 +41,26 @@
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsMale)
+                @if (item.IsMale)
+                {
+                    <p>Male</p>
+                }
+                else
+                {
+                    <p>Female</p>
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
+                @if (item.BirthDate.HasValue)
+                {
+                    @item.BirthDate.Value.ToShortDateString();
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeathDate)
+                @if (item.DeathDate.HasValue)
+                {
+                    @item.DeathDate.Value.ToShortDateString();
+                }
             </td>
             <td>
                 @if (item.MotherId != null)
