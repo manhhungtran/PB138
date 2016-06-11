@@ -78,7 +78,7 @@
     </h2>
     @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
     
-    <h2>
+    <h2>s
         @Html.LabelFor(model => model.DeathDate)
     </h2>
     @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
@@ -87,16 +87,19 @@
         @Html.LabelFor(model => model.MotherId)
     </h2>
     @Html.DropDownListFor(model => model.MotherId, mothers, new { @class = "settings_input_dropdown" })
+    @Html.ActionLink("Remove mother", "RemoveMother", new { id = Model.Id, action = "Edit" })
+
     <h2>
         @Html.LabelFor(model => model.FatherId)
     </h2>
     @Html.DropDownListFor(model => model.FatherId, fathers, new { @class = "settings_input_dropdown" })
+    @Html.ActionLink("Remove father", "RemoveFather", new {id = Model.Id, action = "Edit"})
 
     <h2>
         @Html.LabelFor(model => model.PartnerId)
     </h2>
     @Html.DropDownListFor(model => model.PartnerId, partners, new { @class = "settings_input_dropdown" })
-
+    @Html.ActionLink("Remove partner", "RemovePartner", new { id = Model.Id, action = "Edit" })
     <br />
     <input type="submit" value="Edit" class="button" />
 }
