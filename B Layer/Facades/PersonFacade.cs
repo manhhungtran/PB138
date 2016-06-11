@@ -153,6 +153,10 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method RemovePartner removes person's mother
+        /// </summary>
+        /// <param name="personId">ID of person which mother is going to be removed</param>
         public void RemoveMother(int personId)
         {
             if (personId <= 0)
@@ -177,6 +181,10 @@ namespace B_Layer.Facades
             }
         }
 
+        /// <summary>
+        /// Method RemovePartner removes person's father
+        /// </summary>
+        /// <param name="personId">ID of person which father is going to be removed</param>
         public void RemoveFather(int personId)
         {
             if (personId <= 0)
@@ -202,9 +210,9 @@ namespace B_Layer.Facades
         }
 
         /// <summary>
-        /// 
+        /// Method RemovePartner removes person's partner and partner's partner, which is person
         /// </summary>
-        /// <param name="personDTO">Person whi</param>
+        /// <param name="personId">ID of person which partner is going to be removed</param>
         public void RemovePartner(int personId)
         {
             if (personId <= 0)

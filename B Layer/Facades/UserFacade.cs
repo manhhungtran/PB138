@@ -14,6 +14,10 @@ namespace B_Layer.Facades
 {
     public class UserFacade
     {
+        /// <summary>
+        /// Method Register registers user
+        /// </summary>
+        /// <param name="userDTO">User to be registered</param>
         public void Register(UserDTO userDTO)
         {
             var userManager = new AppUserManager(new AppUserStore(new AppDbContext()));
@@ -22,6 +26,12 @@ namespace B_Layer.Facades
             userManager.Create(appUser, userDTO.Password);
         }
 
+        /// <summary>
+        /// Method login logs in user after inserting user name and password
+        /// </summary>
+        /// <param name="userName">User's user name</param>
+        /// <param name="password">User's password</param>
+        /// <returns>Logged in user</returns>
         public ClaimsIdentity Login(string userName, string password)
         {
             var userManager = new AppUserManager(new AppUserStore(new AppDbContext()));
