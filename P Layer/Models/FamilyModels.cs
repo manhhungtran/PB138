@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 using Newtonsoft.Json;
 using P_Layer.Controllers;
 
@@ -31,6 +32,28 @@ namespace P_Layer.Models
         public int? PartnerId { get; set; }
 
         [JsonIgnore]
+        [XmlIgnore]
         public int UserId { get; set; }
+
+        public bool ShouldSerializeBirthDate()
+        {
+            return BirthDate != null;
+        }
+        public bool ShouldSerializeDeathDate()
+        {
+            return DeathDate != null;
+        }
+        public bool ShouldSerializeMotherId()
+        {
+            return MotherId != null;
+        }
+        public bool ShouldSerializeFatherId()
+        {
+            return FatherId != null;
+        }
+        public bool ShouldSerializePartnerId()
+        {
+            return PartnerId != null;
+        }
     }
 }
