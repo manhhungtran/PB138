@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -133,14 +134,20 @@ namespace P_Layer.Controllers
 
         public ActionResult XML()
         {
-            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
-                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
+            var people = _personFacade.GetAllPeople(User.Identity.GetUserId<int>())
+                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
+                .ToList();
 
-            var xmlSerializer = new XmlSerializer(people.GetType());
+            return View(XMLSerialize(people));
+        }
+
+        private StringWriter XMLSerialize(object o)
+        {
+            var xmlSerializer = new XmlSerializer(o.GetType());
             var xml = new StringWriter();
-            xmlSerializer.Serialize(xml, people);
+            xmlSerializer.Serialize(xml, o);
 
-            return View(xml);
+            return xml;
         }
     }
 
