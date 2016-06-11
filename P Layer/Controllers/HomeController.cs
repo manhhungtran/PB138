@@ -126,7 +126,9 @@ namespace P_Layer.Controllers
 
             JsonSerializerSettings settings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
 
-            return View(JsonConvert.SerializeObject(people, settings));
+            string neco = JsonConvert.SerializeObject(people, settings);
+            ViewBag.neco = neco;
+            return View();
         }
 
         public ActionResult XML()
