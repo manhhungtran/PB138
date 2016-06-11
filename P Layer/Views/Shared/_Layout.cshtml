@@ -16,27 +16,39 @@
     <div class="wrapper">
         <div id="menu_left">
             <div class="menu_left_content">
+                <a href="@Url.Action("Index","Home")">
+                    <div class="menu_left_item" title="Home">
+                        <i class="fa fa-home fa-lg"></i>&nbsp;&nbsp; Home
+                    </div>
+                </a>
 
-                <div class="menu_left_item" title="Home">
-                    <i class="fa fa-home fa-lg"></i>&nbsp;&nbsp; Home
-                </div>
+                <a href="@Url.Action("Graph", "Home")">
+                    <div class="menu_left_item" title="View graph">
+                        <i class="fa fa-file fa-lg"></i>&nbsp;&nbsp; Graph
+                    </div>
+                </a>
 
-                <div class="menu_left_item" title="View graph">
-                    <i class="fa fa-file fa-lg"></i>&nbsp;&nbsp; Graph
-                </div>
+                <a href="@Url.Action("Table", "Home")">
+                    <div class="menu_left_item" title="View table">
+                        <i class="fa fa-comments fa-lg"></i>&nbsp;&nbsp; Table
+                    </div>
+                </a>
 
-                <div class="menu_left_item" title="View table">
-                    <i class="fa fa-comments fa-lg"></i>&nbsp;&nbsp; Table
-                </div>
+                <a href="@Url.Action("ChangePassword", "Manage")">
+                    <div class="menu_left_item" title="Settings">
+                        <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
+                    </div>
+                </a>
 
-                <div class="menu_left_item" title="Settings">
-                    <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
-                </div>
-
-                <div class="menu_left_item" title="Log out">
-                    <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Log out
-                </div>
-
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <div class="menu_left_item" title="Log out">
+                            <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Log out
+                        </div>
+                    </a>
+                }
             </div>
         </div>
 

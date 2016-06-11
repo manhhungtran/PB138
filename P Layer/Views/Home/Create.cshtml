@@ -8,7 +8,7 @@
     List<SelectListItem> fathers = men.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = a.Name + " " + a.Surname
+        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
     }).ToList();
     fathers.Add(new SelectListItem()
     {
@@ -20,7 +20,7 @@
     List<SelectListItem> mothers = women.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = a.Name + " " + a.Surname
+        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
     }).ToList();
 
     mothers.Add(new SelectListItem()
@@ -35,37 +35,48 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
-    <h4>Add person</h4>
+    <a href="@Url.Action("Table")"><input type="submit" class="button" value="Back to List"/></a>
+    
+    <h1>Add person</h1>
     <hr />
     @Html.ValidationSummary("", new { @class = "error_msg" })
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "settings_input" } })
-
-    @Html.LabelFor(model => model.Surname)
-    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "settings_input" } })
-
-    @Html.LabelFor(model => model.IsMale)
-    <div class="checkbox">
-        @Html.EditorFor(model => model.IsMale)
-    </div>
-
-    @Html.LabelFor(model => model.BirthDate)
-    @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
-
-    @Html.LabelFor(model => model.DeathDate)
-    @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
+    <h2>
+        @Html.LabelFor(model => model.Name)
+    </h2>
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "settings_input" } })
     
-    @Html.LabelFor(model => model.MotherId)
-    @Html.DropDownListFor(model => model.MotherId, mothers, new { htmlAttributes = new { @class = "settings_input" } })
+    <h2>
+        @Html.LabelFor(model => model.Surname)
+    </h2>
+        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "settings_input" } })
+    
+    <h2>
+        @Html.LabelFor(model => model.IsMale)
+    </h2>
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsMale)
+            </div>
 
-    @Html.LabelFor(model => model.FatherId)
-    @Html.DropDownListFor(model => model.FatherId, fathers, new { htmlAttributes = new { @class = "settings_input" }})
+    <h2>
+        @Html.LabelFor(model => model.BirthDate)
+    </h2>
+        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
 
+    <h2>
+        @Html.LabelFor(model => model.DeathDate)
+    </h2>        
+        @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
+
+    <h2>
+        @Html.LabelFor(model => model.MotherId)
+    </h2>
+        @Html.DropDownListFor(model => model.MotherId, mothers, new { @class = "settings_input_dropdown" })
+    <h2>
+        @Html.LabelFor(model => model.FatherId)
+   </h2>
+         @Html.DropDownListFor(model => model.FatherId, fathers, new { @class = "settings_input_dropdown" })
+        
+    <br/>
     <input type="submit" value="Create" class="button" />
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Table")
-</div>
+    }

@@ -1,0 +1,82 @@
+﻿@model P_Layer.Models.PersonModel
+<p>
+    <a href="@Url.Action("Edit", new {id = Model.Id})"><input type="submit" class="button" value="Edit" /></a>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List"/></a>
+</p>
+<h1>PersonModel</h1>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Surname)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Surname)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.IsMale)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.IsMale)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.BirthDate)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.BirthDate)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.DeathDate)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.DeathDate)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.MotherId)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.MotherId)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.FatherId)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.FatherId)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PartnerId)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PartnerId)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.UserId)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.UserId)
+    </dd>
+
+</dl>
+
