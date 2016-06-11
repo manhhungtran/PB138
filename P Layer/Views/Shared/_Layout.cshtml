@@ -24,13 +24,13 @@
 
                 <a href="@Url.Action("Graph", "Home")">
                     <div class="menu_left_item" title="View graph">
-                        <i class="fa fa-file fa-lg"></i>&nbsp;&nbsp; Graph
+                        <i class="fa fa-area-chart fa-lg"></i>&nbsp;&nbsp; Graph
                     </div>
                 </a>
 
                 <a href="@Url.Action("Table", "Home")">
                     <div class="menu_left_item" title="View table">
-                        <i class="fa fa-comments fa-lg"></i>&nbsp;&nbsp; Table
+                        <i class="fa fa-table fa-lg"></i>&nbsp;&nbsp; Table
                     </div>
                 </a>
 
@@ -40,12 +40,18 @@
                     </div>
                 </a>
 
+                <a href="@Url.Action("Export", "Home")">
+                    <div class="menu_left_item" title="Export you family into XML file">
+                        <i class="fa fa-file fa-lg"></i>&nbsp;&nbsp; Export to XML
+                    </div>
+                </a>
+
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
                     <a href="javascript:document.getElementById('logoutForm').submit()">
                         <div class="menu_left_item" title="Log out">
-                            <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Log out
+                            <i class="fa fa-sign-out fa-lg"></i>&nbsp;&nbsp; Log out
                         </div>
                     </a>
                 }

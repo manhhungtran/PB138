@@ -13,5 +13,10 @@ namespace DA_Layer
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, int, AppUserLogin, AppUserRole, AppUserClaim>
     {
         public DbSet<Person> People { get; set; }
+
+        public AppDbContext() : base("FinalDbSolution")
+	    {
+        }
     }
+
 }

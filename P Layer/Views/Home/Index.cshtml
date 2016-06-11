@@ -6,13 +6,19 @@
 
 <a href="@Url.Action("Graph", "Home")">
     <div class="border_item" title="View graph">
-        <i class="fa fa-file fa-5x"></i>Graph
+        <i class="fa fa-area-chart fa-5x"></i>Graph
     </div>
 </a>
 
 <a href="@Url.Action("Table", "Home")">
     <div class="border_item" title="View table">
-        <i class="fa fa-comments fa-5x"></i>Table
+        <i class="fa fa-table fa-5x"></i>Table
+    </div>
+</a>
+
+<a href="@Url.Action("Export", "Home")">
+    <div class="border_item" title="Export you family into XML file">
+        <i class="fa fa-file fa-5x"></i>Export
     </div>
 </a>
 
@@ -27,7 +33,7 @@
     @Html.AntiForgeryToken()
     <a href="javascript:document.getElementById('logoutForm').submit()">
         <div class="border_item" title="Log out">
-            <i class="fa fa-cog fa-5x"></i>Logout
+            <i class="fa fa-sign-out fa-5x"></i>Logout
         </div>
     </a>
 }
