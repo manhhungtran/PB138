@@ -8,7 +8,7 @@
     List<SelectListItem> fathers = men.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
+        Text = $"{a.Surname} {a.Name}, {a.BirthDate?.ToShortDateString() ?? ""}"
     }).ToList();
     fathers.Add(new SelectListItem()
     {
@@ -20,7 +20,7 @@
     List<SelectListItem> mothers = women.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
+        Text = $"{a.Surname} {a.Name}, {a.BirthDate?.ToShortDateString() ?? ""}"
     }).ToList();
 
     mothers.Add(new SelectListItem()

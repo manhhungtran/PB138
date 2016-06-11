@@ -9,7 +9,7 @@
     List<SelectListItem> fathers = men.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
+        Text = $"{a.Surname} {a.Name}, {a.BirthDate?.ToShortDateString() ?? ""}"
     }).ToList();
     fathers.Add(new SelectListItem()
     {
@@ -21,7 +21,7 @@
     List<SelectListItem> mothers = women.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
+        Text = $"{a.Surname} {a.Name}, {a.BirthDate?.ToShortDateString() ?? ""}"
     }).ToList();
 
     mothers.Add(new SelectListItem()
@@ -34,7 +34,7 @@
     List<SelectListItem> partners = partner.Select(a => new SelectListItem()
     {
         Value = a.Id.ToString(),
-        Text = $"{a.Name} {a.Surname}, {a.BirthDate}"
+        Text = $"{a.Surname} {a.Name}, {a.BirthDate?.ToShortDateString() ?? ""}"
     }).ToList();
 
     partners.Add(new SelectListItem()
@@ -52,7 +52,7 @@
     @Html.AntiForgeryToken()
     <a href="@Url.Action("Table")"><input type="submit" class="button" value="Back to List" /></a>
 
-    <h1>Add person</h1>
+    <h1>Edit person</h1>
     <hr />
     @Html.ValidationSummary("", new { @class = "error_msg" })
 
@@ -77,7 +77,7 @@
         @Html.LabelFor(model => model.BirthDate)
     </h2>
     @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
-
+    
     <h2>
         @Html.LabelFor(model => model.DeathDate)
     </h2>

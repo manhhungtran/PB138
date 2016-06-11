@@ -18,8 +18,10 @@ namespace P_Layer.Models
         [Required]
         public bool IsMale { get; set; }
         [JsonIgnore]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? BirthDate { get; set; }
         [JsonIgnore]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DeathDate { get; set; }
 
         public int? MotherId { get; set; }

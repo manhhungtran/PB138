@@ -1,9 +1,10 @@
 ﻿@model P_Layer.Models.PersonModel
+
 <p>
     <a href="@Url.Action("Edit", new {id = Model.Id})"><input type="submit" class="button" value="Edit" /></a>
-    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List"/></a>
+    <a href="@Url.Action("Table")"><input type="submit" class="button" value="Back to List"/></a>
 </p>
-<h1>PersonModel</h1>
+<h1>@Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Surname)</h1>
 <hr />
 <dl class="dl-horizontal">
     <dt>
@@ -23,11 +24,18 @@
     </dd>
 
     <dt>
-        @Html.DisplayNameFor(model => model.IsMale)
+        Gender
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.IsMale)
+        @if (Model.IsMale)
+        {
+            <p>Male</p>
+        }
+        else
+        {
+            <p>Female</p>
+        }
     </dd>
 
     <dt>
@@ -47,7 +55,7 @@
     </dd>
 
     <dt>
-        @Html.DisplayNameFor(model => model.MotherId)
+        Mother
     </dt>
 
     <dd>
@@ -55,7 +63,7 @@
     </dd>
 
     <dt>
-        @Html.DisplayNameFor(model => model.FatherId)
+        Father
     </dt>
 
     <dd>
@@ -63,20 +71,11 @@
     </dd>
 
     <dt>
-        @Html.DisplayNameFor(model => model.PartnerId)
+        Partner
     </dt>
 
     <dd>
         @Html.DisplayFor(model => model.PartnerId)
     </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.UserId)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.UserId)
-    </dd>
-
 </dl>
 
