@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
+using P_Layer.Controllers;
 
 namespace P_Layer.Models
 {
@@ -16,6 +17,7 @@ namespace P_Layer.Models
         [Required]
         public string Surname { get; set; }
         [Required]
+        [JsonConverter(typeof(BoolConverter))]
         public bool IsMale { get; set; }
         [JsonIgnore]
         public DateTime? BirthDate { get; set; }
