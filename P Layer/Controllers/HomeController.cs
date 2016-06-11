@@ -88,7 +88,9 @@ namespace P_Layer.Controllers
             ViewBag.Men = people
                 .Where(man => man.IsMale)
                 .ToList();
-
+            ViewBag.Partner = people
+                .Where(partner => (person.IsMale ? !partner.IsMale : partner.IsMale))
+                .ToList();
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
         
