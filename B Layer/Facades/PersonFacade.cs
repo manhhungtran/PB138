@@ -452,7 +452,7 @@ namespace B_Layer.Facades
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="personDTO"></param>
+        /// <param name="personDTO">Person whi</param>
         public void RemovePartner(PersonDTO personDTO)
         {
             if (personDTO == null) { throw new ArgumentNullException(nameof(personDTO)); }
