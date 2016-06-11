@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Serialization;
 using B_Layer.DTO;
 using B_Layer.Facades;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using P_Layer.Models;
 
 namespace P_Layer.Controllers
@@ -76,7 +79,7 @@ namespace P_Layer.Controllers
             var person = _personFacade.GetPerson(id);
 
             var people = _personFacade.GetAllPeople(User.Identity.GetUserId<int>())
-                .Where(element => element.Id != id)
+                .Where(element => element.Id != id && element.MotherId != id && element.FatherId != id)
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
             ViewBag.Women = people
@@ -187,90 +190,39 @@ namespace P_Layer.Controllers
 
             return RedirectToAction("Table");
         }
-        
-        public ActionResult SetMother(int id)
+
+        public ActionResult Graph()
         {
-            ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
-                .Where(element => element.Id != id && !element.IsMale)
-                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
-                .ToList();
-
-            return View();
-        }
-        
-        [HttpPost]
-        public ActionResult SetMother(int id, PersonModel person)
-        {
-            NameValueCollection nvc = Request.Form;
-
-            int motherId;
-
-            bool result = int.TryParse(nvc["woman"], out motherId);
-            if (result)
-            {
-                _personFacade.SetMother(id, motherId);
-            }
-            else
-            {
-                if (_personFacade.GetPerson(id).MotherId != null)
-                {
-                    _personFacade.RemoveMother(id);
-                }
-            }
-
-            return RedirectToAction("Table");
-        }
-        
-        public ActionResult SetFather(int id)
-        {
-            ViewBag.Women = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
-                .Where(element => element.Id != id && element.IsMale)
-                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
-                .ToList();
-
-            return View();
-        }
-        
-        [HttpPost]
-        public ActionResult SetFather(int id, PersonModel person)
-        {
-            NameValueCollection nvc = Request.Form;
-
-            int fatherId;
-
-            bool result = int.TryParse(nvc["woman"], out fatherId);
-            if (result)
-            {
-                _personFacade.SetMother(id, fatherId);
-            }
-            else
-            {
-                if (_personFacade.GetPerson(id).FatherId != null)
-                {
-                    _personFacade.RemoveFather(id);
-                }
-            }
-
-            return RedirectToAction("Table");
+            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
+                
+            return View(JsonSerialize(people));
         }
 
 
-        //public static string JsonSerialize(object o)
-        //{
-        //    JsonSerializerSettings settings = new JsonSerializerSettings();
-        //    settings.NullValueHandling = NullValueHandling.Ignore;
-        //    settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+        private static string JsonSerialize(object o)
+        {
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
 
-        //    return JsonConvert.SerializeObject(o, Formatting.Indented, settings);
-        //}
+            return JsonConvert.SerializeObject(o, settings);
+        }
 
-        //public static StringWriter XmlSerialize(object o)
-        //{
-        //    var xmlSerializer = new XmlSerializer(o.GetType());
-        //    var xml = new StringWriter();
-        //    xmlSerializer.Serialize(xml, o);
+        public ActionResult XML()
+        {
+            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
-        //    return xml;
-        //}
+            return View(XmlSerialize(people));
+        }
+
+        private static StringWriter XmlSerialize(object o)
+        {
+            var xmlSerializer = new XmlSerializer(o.GetType());
+            var xml = new StringWriter();
+            xmlSerializer.Serialize(xml, o);
+
+            return xml;
+        }
     }
 }
