@@ -82,41 +82,54 @@
             </b>
         </td>
 
-        <td>
-            @if (Model.MotherId != null)
-            {
-                @Html.ActionLink("View", "Details", new { id = Model.MotherId })
-            }
-        </td>
+        @if (Model.MotherId != null)
+        {
+            <td>
+                @Html.ActionLink("View", "Details", new {id = Model.MotherId})
+            </td>
+            <td>
+                @Html.ActionLink("Remove mother", "RemoveMother", new { id = Model.Id, action = "Details" })
+            </td>
+        }
     </tr>
 
     <tr>
         <td>
             <b>
-                Father: 
+                Father:
             </b>
         </td>
 
-        <td>
-            @if (Model.FatherId != null)
-            {
+        @if (Model.FatherId != null)
+        {
+            <td>
                 @Html.ActionLink("View", "Details", new { id = Model.FatherId })
-            }
-        </td>
+            </td>
+            <td>
+                @Html.ActionLink("Remove father", "RemoveFather", new { id = Model.Id, action = "Details" })
+            </td>
+        }
     </tr>
+
+
 
     <tr>
         <td>
             <b>
-                Lover: 
+                Lover:
             </b>
         </td>
 
-        <td>
-            @if (Model.PartnerId != null)
-            {
+        @if (Model.PartnerId != null)
+        {
+            <td>
                 @Html.ActionLink("View", "Details", new { id = Model.PartnerId })
-            }
-        </td>
+            </td>
+            <td>
+                @Html.ActionLink("Remove partner", "RemovePartner", new { id = Model.Id, action = "Details" })
+            </td>
+        }
+
     </tr>
+
 </table>
