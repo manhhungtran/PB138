@@ -25,14 +25,14 @@ namespace P_Layer.Controllers
         // GET: Family
         public ActionResult Table()
         {
-            var model = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()));
+            var model = _personFacade.GetAllPeople(User.Identity.GetUserId<int>());
 
             return View(model.Select(element => ModelMapping.Mapper.Map<PersonModel>(element)));
         }
         
         public ActionResult Create()
         {
-            var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
+            var people = _personFacade.GetAllPeople(User.Identity.GetUserId<int>())
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
             ViewBag.Women = people
@@ -64,6 +64,8 @@ namespace P_Layer.Controllers
                 person.FatherId = fatherId;
             }
 
+            person.UserId = User.Identity.GetUserId<int>();
+
             _personFacade.CreatePerson(ModelMapping.Mapper.Map<PersonDTO>(person));
 
             return RedirectToAction("Table");
@@ -72,18 +74,42 @@ namespace P_Layer.Controllers
         public ActionResult Edit(int id)
         {
             var person = _personFacade.GetPerson(id);
+
+            var people = _personFacade.GetAllPeople(User.Identity.GetUserId<int>())
+                .Where(element => element.Id != id)
+                .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
+
+            ViewBag.Women = people
+                .Where(woman => !woman.IsMale)
+                .ToList();
+            ViewBag.Men = people
+                .Where(man => man.IsMale)
+                .ToList();
+
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
         
         [HttpPost]
         public ActionResult Edit(int id, PersonModel person)
         {
-            if (!ModelState.IsValid)
+            var originalPerson = _personFacade.GetPerson(id);
+
+            NameValueCollection nvc = Request.Form;
+
+            int motherId;
+            int fatherId;
+
+            bool result = int.TryParse(nvc["woman"], out motherId);
+            if (result)
             {
-                return View(person);
+                originalPerson.MotherId = motherId;
             }
 
-            var originalPerson = _personFacade.GetPerson(id);
+            result = int.TryParse(nvc["man"], out fatherId);
+            if (result)
+            {
+                originalPerson.FatherId = fatherId;
+            }
             originalPerson.Name = person.Name;
             originalPerson.Surname = person.Surname;
             originalPerson.IsMale = person.IsMale;

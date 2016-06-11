@@ -55,7 +55,7 @@ namespace B_Layer.Facades
             using (var context = new AppDbContext())
             {
                 var students = context.People
-                    .Select(person => person.UserId == id)
+                    .Where(person => person.UserId == id)
                     .ToList();
 
                 return students
