@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "";
+    String assss = ViewBag.neco;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your family tree :)</title>
+    <link href="~/Content/style..css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Scripts/go.js")
+    @Scripts.Render("~/Scripts/genogram.js")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body onload="init(@assss)">
+    <!--Main menu-->
+    <div class="wrapper">
+        <div id="menu_left">
+            <div class="menu_left_content">
+                <a href="@Url.Action("Index","Home")">
+                    <div class="menu_left_item" title="Home">
+                        <i class="fa fa-home fa-lg"></i>&nbsp;&nbsp; Home
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Graph", "Home")">
+                    <div class="menu_left_item" title="View graph">
+                        <i class="fa fa-area-chart fa-lg"></i>&nbsp;&nbsp; Graph
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Table", "Home")">
+                    <div class="menu_left_item" title="View table">
+                        <i class="fa fa-table fa-lg"></i>&nbsp;&nbsp; Table
+                    </div>
+                </a>
+
+                <a href="@Url.Action("ChangePassword", "Manage")">
+                    <div class="menu_left_item" title="Settings">
+                        <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
+                    </div>
+                </a>
+
+                <a href="@Url.Action("XML", "Home")">
+                    <div class="menu_left_item" title="Export you family into XML file">
+                        <i class="fa fa-file fa-lg"></i>&nbsp;&nbsp; Export to XML
+                    </div>
+                </a>
+
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <div class="menu_left_item" title="Log out">
+                            <i class="fa fa-sign-out fa-lg"></i>&nbsp;&nbsp; Log out
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+
+        <div id="main_body">
+            <div id="sample">
+                <div id="myDiagramDiv" style="border: solid 5px rgb(43,43,43); width: 100%; height: 800px"></div>
+                <button id="openImage" class="button">Open image</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year</p>
+    </footer>
+</body>
+</html>
