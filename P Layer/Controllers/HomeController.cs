@@ -104,12 +104,21 @@ namespace P_Layer.Controllers
             {
                 originalPerson.MotherId = motherId;
             }
+            else
+            {
+                originalPerson.MotherId = null;
+            }
 
             result = int.TryParse(nvc["man"], out fatherId);
             if (result)
             {
                 originalPerson.FatherId = fatherId;
             }
+            else
+            {
+                originalPerson.FatherId = null;
+            }
+
             originalPerson.Name = person.Name;
             originalPerson.Surname = person.Surname;
             originalPerson.IsMale = person.IsMale;

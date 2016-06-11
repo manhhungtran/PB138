@@ -51,19 +51,19 @@
         <td>
             @if (item.MotherId != null)
             {
-                @Html.ActionLink("Mother", "Details", new { @class = "button" }, new { id = item.MotherId })
+                @Html.ActionLink("Mother", "Details", new { id = item.MotherId }, new { @class = "button" })
             }
         </td>
         <td>
             @if (item.FatherId != null)
             {
-                @Html.ActionLink("Father", "Details", new { @class = "button" }, new { id = item.FatherId })
+                @Html.ActionLink("Father", "Details", new { id = item.FatherId }, new { @class = "button" })
             }
         </td>
         <td>
             @if (item.PartnerId != null)
             {
-                @Html.ActionLink("Parther", "Details", new { @class = "button" }, new { id = item.PartnerId })
+                @Html.ActionLink("Parther", "Details", new { id = item.PartnerId }, new { @class = "button" })
             }
         </td>
         <td>
