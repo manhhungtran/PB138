@@ -52,26 +52,29 @@
             <td>
                 @if (item.MotherId != null)
                 {
-                    @Html.ActionLink("Mother", "Details", new { id = item.MotherId }, new { @class = "button" })
+                    @Html.ActionLink("Mother", "Details", new { id = item.MotherId })
                 }
             </td>
             <td>
                 @if (item.FatherId != null)
                 {
-                    @Html.ActionLink("Father", "Details", new { id = item.FatherId }, new { @class = "button" })
+                    @Html.ActionLink("Father", "Details", new { id = item.FatherId })
                 }
             </td>
             <td>
                 @if (item.PartnerId != null)
                 {
-                    @Html.ActionLink("Parther", "Details", new { id = item.PartnerId }, new { @class = "button" })
+                    @Html.ActionLink("Parther", "Details", new { id = item.PartnerId })
                 }
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "button" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "button" })
+                <a href="@Url.Action("Edit", new {id = item.Id})"><input type="submit" class="button" value="Edit" /></a>
             </td>
+            <td>
+                <a href="@Url.Action("Details", new {id = item.Id})"><input type="submit" class="button" value="Detail" /></a
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {id = item.Id})"><input type="submit" class="button" value="Delete" /></a></td>
         </tr>
     }
 </table>
