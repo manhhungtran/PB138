@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<P_Layer.Models.PersonModel>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")">
+        <input type="submit" class="button" value="Create New"/>
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -30,48 +31,47 @@
             Partner
         </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsMale)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BirthDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeathDate)
-        </td>
-        <td>
-            @if (item.MotherId != null)
-            {
-                @Html.ActionLink("Mother", "Details", new { id = item.MotherId }, new { @class = "button" })
-            }
-        </td>
-        <td>
-            @if (item.FatherId != null)
-            {
-                @Html.ActionLink("Father", "Details", new { id = item.FatherId }, new { @class = "button" })
-            }
-        </td>
-        <td>
-            @if (item.PartnerId != null)
-            {
-                @Html.ActionLink("Parther", "Details", new { id = item.PartnerId }, new { @class = "button" })
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button" }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "button" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "button"})
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathDate)
+            </td>
+            <td>
+                @if (item.MotherId != null)
+                {
+                    @Html.ActionLink("Mother", "Details", new { id = item.MotherId }, new { @class = "button" })
+                }
+            </td>
+            <td>
+                @if (item.FatherId != null)
+                {
+                    @Html.ActionLink("Father", "Details", new { id = item.FatherId }, new { @class = "button" })
+                }
+            </td>
+            <td>
+                @if (item.PartnerId != null)
+                {
+                    @Html.ActionLink("Parther", "Details", new { id = item.PartnerId }, new { @class = "button" })
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "button" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "button" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "button" })
+            </td>
+        </tr>
+    }
 </table>

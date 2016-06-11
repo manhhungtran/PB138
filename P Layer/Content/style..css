@@ -57,14 +57,15 @@ a:hover {
 
 
 .menu_left_item{
-  padding: 10px 5px 10px 8px;
-  -webkit-border-top-left-radius: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  -moz-border-radius-topleft: 6px;
-  -moz-border-radius-bottomleft: 6px;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  cursor: pointer; 
+    padding: 10px 5px 10px 8px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    cursor: pointer;
+    color: white;
 }
 
 .menu_left_item:hover{
@@ -89,6 +90,14 @@ h3{
   margin-bottom: 10px;
   font-size: 15px;
   height: 30px;
+}
+
+.settings_input_dropdown{
+    width: 500px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    height: 30px;
+    padding: 5px 5px 6px 5px;
 }
 
 h2{
