@@ -50,23 +50,6 @@ namespace P_Layer.Controllers
         [HttpPost]
         public ActionResult Create(PersonModel person)
         {
-            NameValueCollection nvc = Request.Form;
-
-            int motherId;
-            int fatherId;
-
-            bool result = int.TryParse(nvc["woman"], out motherId);
-            if (result)
-            {
-                person.MotherId = motherId;
-            }
-
-            result = int.TryParse(nvc["man"], out fatherId);
-            if (result)
-            {
-                person.FatherId = fatherId;
-            }
-
             person.UserId = User.Identity.GetUserId<int>();
 
             _personFacade.CreatePerson(ModelMapping.Mapper.Map<PersonDTO>(person));
@@ -89,7 +72,8 @@ namespace P_Layer.Controllers
                 .Where(man => man.IsMale)
                 .ToList();
             ViewBag.Partner = people
-                .Where(partner => (person.IsMale ? !partner.IsMale : partner.IsMale))
+                .Where(partner => (person.IsMale ? !partner.IsMale : partner.IsMale) &&
+                    partner.Id != person.FatherId && partner.Id != person.MotherId)
                 .ToList();
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
@@ -99,48 +83,24 @@ namespace P_Layer.Controllers
         {
             var originalPerson = _personFacade.GetPerson(id);
 
-            NameValueCollection nvc = Request.Form;
-
-            int motherId;
-            int fatherId;
-            int partnerId;
-
-            bool result = int.TryParse(nvc["woman"], out motherId);
-            if (result)
-            {
-                originalPerson.MotherId = motherId;
-            }
-            else
-            {
-                originalPerson.MotherId = null;
-            }
-
-            result = int.TryParse(nvc["man"], out fatherId);
-            if (result)
-            {
-                originalPerson.FatherId = fatherId;
-            }
-            else
-            {
-                originalPerson.FatherId = null;
-            }
-
-            result = int.TryParse(nvc["partner"], out partnerId);
-            if (result)
-            {
-                originalPerson.PartnerId = fatherId;
-            }
-            else
-            {
-                originalPerson.PartnerId = null;
-            }
-
             originalPerson.Name = person.Name;
             originalPerson.Surname = person.Surname;
             originalPerson.IsMale = person.IsMale;
             originalPerson.BirthDate = person.BirthDate;
             originalPerson.DeathDate = person.DeathDate;
-
+            if (person.FatherId != null)
+            {
+                originalPerson.FatherId = person.FatherId;
+            }
+            if (person.MotherId != null)
+            {
+                originalPerson.MotherId = person.MotherId;
+            }
+            if (person.PartnerId != null)
+            {
+                originalPerson.PartnerId = person.PartnerId;
+            }
+            
             _personFacade.UpdatePerson(originalPerson);
 
             return RedirectToAction("Table");

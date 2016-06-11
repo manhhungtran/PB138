@@ -86,6 +86,8 @@ namespace B_Layer.Facades
         {
             if (person == null) { throw new ArgumentNullException(nameof(person)); }
 
+            System.Diagnostics.Debug.WriteLine("PERSON Mother: " + person.MotherId);
+
             Person personToBeUpdated = Mapping.Mapper.Map<Person>(person);
             using (var context = new AppDbContext())
             {
