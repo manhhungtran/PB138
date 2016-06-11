@@ -119,6 +119,37 @@ namespace P_Layer.Controllers
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
 
+        public ActionResult RemoveMother(int id, string action)
+        {
+            if (_personFacade.GetPerson(id).MotherId == null)
+            {
+                return RedirectToAction(action, new { id });
+            }
+
+            _personFacade.RemoveMother(id);
+            return RedirectToAction(action, new { id });
+        }
+        public ActionResult RemoveFather(int id, string action)
+        {
+            if (_personFacade.GetPerson(id).FatherId == null)
+            {
+                return RedirectToAction(action, new { id });
+            }
+
+            _personFacade.RemoveFather(id);
+            return RedirectToAction(action, new {id});
+        }
+        public ActionResult RemovePartner(int id, string action)
+        {
+            if (_personFacade.GetPerson(id).PartnerId == null)
+            {
+                return RedirectToAction(action, new { id });
+            }
+
+            _personFacade.RemovePartner(id);
+            return RedirectToAction(action, new { id });
+        }
+
         public ActionResult Graph()
         {
             var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
