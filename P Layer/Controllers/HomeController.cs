@@ -196,15 +196,10 @@ namespace P_Layer.Controllers
             var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element))
                 .ToList();
-                
-            return View(JsonSerialize(people));
-        }
 
-        private static string JsonSerialize(List<PersonModel> people)
-        {
-            JsonSerializerSettings settings = new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore};
+            JsonSerializerSettings settings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
 
-            return JsonConvert.SerializeObject(people, settings);
+            return View(JsonConvert.SerializeObject(people, settings));
         }
 
         public ActionResult XML()
@@ -212,16 +207,11 @@ namespace P_Layer.Controllers
             var people = _personFacade.GetAllPeople(int.Parse(User.Identity.GetUserId()))
                 .Select(element => ModelMapping.Mapper.Map<PersonModel>(element));
 
-            return View(XmlSerialize(people));
-        }
-
-        private static StringWriter XmlSerialize(object o)
-        {
-            var xmlSerializer = new XmlSerializer(o.GetType());
+            var xmlSerializer = new XmlSerializer(people.GetType());
             var xml = new StringWriter();
-            xmlSerializer.Serialize(xml, o);
+            xmlSerializer.Serialize(xml, people);
 
-            return xml;
+            return View(xml);
         }
     }
 }
