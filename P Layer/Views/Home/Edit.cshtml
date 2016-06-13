@@ -47,10 +47,11 @@
 }
 
 
+<a href="@Url.Action("Table")"><input type="submit" class="button" value="Back to List" /></a>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <a href="@Url.Action("Table")"><input type="submit" class="button" value="Back to List" /></a>
 
     <h1>Edit person</h1>
     <hr />

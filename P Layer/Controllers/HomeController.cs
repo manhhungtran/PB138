@@ -119,35 +119,32 @@ namespace P_Layer.Controllers
             return View(ModelMapping.Mapper.Map<PersonModel>(person));
         }
 
-        public ActionResult RemoveMother(int id, string action)
+        public ActionResult RemoveMother(int id)
         {
-            if (_personFacade.GetPerson(id).MotherId == null)
+            if (_personFacade.GetPerson(id).MotherId != null)
             {
-                return RedirectToAction(action, new { id });
+                _personFacade.RemoveMother(id);
             }
 
-            _personFacade.RemoveMother(id);
-            return RedirectToAction(action, new { id });
+            return RedirectToAction("Details", new { id });
         }
-        public ActionResult RemoveFather(int id, string action)
+        public ActionResult RemoveFather(int id)
         {
-            if (_personFacade.GetPerson(id).FatherId == null)
+            if (_personFacade.GetPerson(id).FatherId != null)
             {
-                return RedirectToAction(action, new { id });
+                _personFacade.RemoveFather(id);
             }
 
-            _personFacade.RemoveFather(id);
-            return RedirectToAction(action, new {id});
+            return RedirectToAction("Details", new { id });
         }
-        public ActionResult RemovePartner(int id, string action)
+        public ActionResult RemovePartner(int id)
         {
-            if (_personFacade.GetPerson(id).PartnerId == null)
+            if (_personFacade.GetPerson(id).PartnerId != null)
             {
-                return RedirectToAction(action, new { id });
+                _personFacade.RemovePartner(id);
             }
 
-            _personFacade.RemovePartner(id);
-            return RedirectToAction(action, new { id });
+            return RedirectToAction("Details", new { id });
         }
 
         public ActionResult Graph()

@@ -12,3 +12,11 @@
 /DA Layer/bin/Debug
 /DA Layer/bin
 /A Layer/bin
+/B Layer
+/B Layer/bin/Release
+/DA Layer/obj/Release
+/A Layer/obj/Release
+/P Layer/obj/Release
+/P Layer/Properties/PublishProfiles
+/P Layer.Azure/bin/Debug
+/P Layer.Azure
