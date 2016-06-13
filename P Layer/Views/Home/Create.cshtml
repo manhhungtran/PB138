@@ -52,28 +52,28 @@
         @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "settings_input" } })
     
     <h2>
-        @Html.LabelFor(model => model.IsMale)
+        @Html.LabelFor(model => model.IsMale)?
     </h2>
             <div class="checkbox">
                 @Html.EditorFor(model => model.IsMale)
             </div>
 
     <h2>
-        @Html.LabelFor(model => model.BirthDate)
+        Birth Date
     </h2>
         @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
 
     <h2>
-        @Html.LabelFor(model => model.DeathDate)
+        Death date
     </h2>        
         @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
 
     <h2>
-        @Html.LabelFor(model => model.MotherId)
+        Mother
     </h2>
         @Html.DropDownListFor(model => model.MotherId, mothers, new { @class = "settings_input_dropdown" })
     <h2>
-        @Html.LabelFor(model => model.FatherId)
+        Father
    </h2>
          @Html.DropDownListFor(model => model.FatherId, fathers, new { @class = "settings_input_dropdown" })
         

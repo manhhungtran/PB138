@@ -68,36 +68,36 @@
     @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "settings_input" } })
 
     <h2>
-        @Html.LabelFor(model => model.IsMale)
+        @Html.LabelFor(model => model.IsMale)?
     </h2>
     <div class="checkbox">
         @Html.EditorFor(model => model.IsMale)
     </div>
 
     <h2>
-        @Html.LabelFor(model => model.BirthDate)
+        Birth Date:
     </h2>
     @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
     
-    <h2>s
-        @Html.LabelFor(model => model.DeathDate)
+    <h2>
+        Death Date:
     </h2>
     @Html.EditorFor(model => model.DeathDate, new { htmlAttributes = new { @class = "settings_input", @type = "date" } })
 
     <h2>
-        @Html.LabelFor(model => model.MotherId)
+        Mother:
     </h2>
     @Html.DropDownListFor(model => model.MotherId, mothers, new { @class = "settings_input_dropdown" })
     @Html.ActionLink("Remove mother", "RemoveMother", new { id = Model.Id, action = "Edit" })
 
     <h2>
-        @Html.LabelFor(model => model.FatherId)
+        Father:
     </h2>
     @Html.DropDownListFor(model => model.FatherId, fathers, new { @class = "settings_input_dropdown" })
     @Html.ActionLink("Remove father", "RemoveFather", new {id = Model.Id, action = "Edit"})
 
     <h2>
-        @Html.LabelFor(model => model.PartnerId)
+        Partner:
     </h2>
     @Html.DropDownListFor(model => model.PartnerId, partners, new { @class = "settings_input_dropdown" })
     @Html.ActionLink("Remove partner", "RemovePartner", new { id = Model.Id, action = "Edit" })
