@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using B_Layer.DTO;
@@ -73,7 +69,7 @@ namespace P_Layer.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -82,19 +78,19 @@ namespace P_Layer.Controllers
 
                 if (identity != null)
                 {
-                    AuthenticationManager.SignIn(new AuthenticationProperties {IsPersistent = false}, identity);
+                    AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
                     return RedirectToAction("Index", "Home");
                 }
 
-                ModelState.AddModelError("","Bad Email or Password");
+                ModelState.AddModelError("", "Bad Email or Password");
                 return View(model);
             }
 
             return View(model);
         }
 
-  
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -108,7 +104,7 @@ namespace P_Layer.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

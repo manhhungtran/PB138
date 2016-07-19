@@ -108,13 +108,11 @@ h2{
 }
 
 .button{
-    height: 50px;
-    min-width: 70px;
     overflow: hidden;
     color: white;
     background-color: rgb(43,43,43);
     font-size: 20px;
-    padding: 14px 20px 25px 20px;
+    padding: 14px 20px 14px 20px;
     cursor:pointer;
     border:0px;
 }
@@ -179,12 +177,6 @@ th
 {
     background-color: rgb(93,168,215);
     padding: 5px 15px 5px 15px;
-}
-
-td
-{
-    max-width: 150px;
-    padding: 0px 10px 0px 5px;
 }
 
 #error_msg {

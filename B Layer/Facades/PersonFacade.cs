@@ -60,9 +60,9 @@ namespace B_Layer.Facades
         }
 
         /// <summary>
-        /// Method GetAllPeople retrieves all people from database, depending on currently logged user
+        /// Retrieves all people from database, depending on currently logged user.
         /// </summary>
-        /// <param name="id">ID of currently logged user</param>
+        /// <param name="id">Identification of currently logged user</param>
         /// <returns>List of people</returns>
         public List<PersonDTO> GetAllPeople(int id)
         {
@@ -79,14 +79,12 @@ namespace B_Layer.Facades
         }
 
         /// <summary>
-        /// Method UpdatePerson updates person in database
+        /// Updates person in database.
         /// </summary>
         /// <param name="person">Person to be updated</param>
         public void UpdatePerson(PersonDTO person)
         {
             if (person == null) { throw new ArgumentNullException(nameof(person)); }
-
-            System.Diagnostics.Debug.WriteLine("PERSON Mother: " + person.MotherId);
 
             Person personToBeUpdated = Mapping.Mapper.Map<Person>(person);
             using (var context = new AppDbContext())

@@ -89,6 +89,7 @@ namespace P_Layer.Controllers
             originalPerson.IsMale = person.IsMale;
             originalPerson.BirthDate = person.BirthDate;
             originalPerson.DeathDate = person.DeathDate;
+
             if (person.FatherId != null)
             {
                 originalPerson.FatherId = person.FatherId;
