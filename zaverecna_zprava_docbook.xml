@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbook-xml-4.5/docbookx.dtd">
+
+    <book lang="cs">
+        <title>Záverečná zpráva</title>
+        <subtitle>Genealogická webová aplikace</subtitle>
+        <bookinfo>
+            <authorgroup>
+                <author>
+                    <firstname>
+                        Manh Hung
+                    </firstname>
+                    <surname>
+                        Tran
+                    </surname>
+                    <email>
+                        433556
+                    </email>
+                </author>
+                <author>
+                    <firstname>
+                        Dan
+                    </firstname>
+                    <surname>
+                        Polanský
+                    </surname>
+                    <email>
+                        433716
+                    </email>
+                </author>
+                <author>
+                    <firstname>
+                        Hai Duong
+                    </firstname>
+                    <surname>
+                        Tran
+                    </surname>
+                    <email>
+                        445437
+                    </email>
+                </author>
+                <author>
+                    <firstname>
+                        Nikola
+                    </firstname>
+                    <surname>
+                        Šedivcová
+                    </surname>
+                    <email>
+                        433396
+                    </email>
+                </author>
+            </authorgroup>
+            <pubdate>2016-13-06</pubdate>
+        </bookinfo>
+
+        <chapter>
+            <title>Popis projektu</title>
+            <section>
+                <title>Zadání</title>
+                <para>Vytvořte webovou aplikaci pro editaci a prohlížení záznamů rodokmenu. Přístup k editaci bude omezený pro přihlášené uživatele. Aplikace umožní přehledné zobrazení údajů ve stromu nebo grafu.
+                </para>
+            </section>
+        </chapter>
+
+
+        <chapter>
+            <title>Záverečné zprávy</title>
+            <section>
+                <author>Manh Hung Tran</author>
+                <title>Frontend - Presentation layer, design, security</title>
+                <description>
+                    <para>
+                        Můj podíl na vývoji aplikace spočíval především ve vytváření Views v tzv. prezentační vrstvě.Práce zarhnovala návrh a implementaci designu využití technologie Razor(od MVC 4 ASP.NET - v něm zahrnuto HTML) a CSS.
+                    </para>
+                    <para>
+                        Dále jsem se podílel na samotné funkčnosti a bezpečnost z hlediska client-side, díky čemuž by uživatel neměl být schopný napadnout naší aplikaci. Napadnutí přes URL, posílání špatných údajů aplikaci ani SQL injection útok by nemělo být uskutečnitelné - samozřejmě pokud bude mít povolen Javascript a nebue modifikovat HTML, kde už nastupuje Server-side validace.
+                    </para>
+                    <para>
+                        Mohl bych také zmínit, že nápad, hrubý návrh (UML diagram apod.), administrace a inicializovaní GIT repozitáře byla především má úloha.
+                    </para>
+                </description>
+            </section>
+            <section>
+                <author>Dan Polanský</author>
+                <title>Backend - Business Layer</title>
+                <description>
+                    <para>
+                        Nejdříve jsem navrhnul Bussiness Layer, vytvořil v ní Data Transfer Objects (DTO) pro entity, mapování DTO na Entity a fasády s CRUD operacema. Snažil jsem se o co nejčistější a jednoduše rozšiřitelnou implementaci, proto jsem například pro mapování využil AutoMapper, který celé mapování usnadnil a zpřehlednil.
+                    </para>
+                    <para>
+                        Jako poslední přišla na řadu implementace části Presentation Layer. Na starost jsem měl modely a controllery. Tvorba controllerů zahrnovala vytváření algoritmů pro správné filtrování osob z databáze tak, aby se zobrazily jen ty osoby, které právě přihlášený uživatel vytvořil.
+                    </para>
+                </description>
+            </section>
+            <section>
+                <author>Hai Duong Tran</author>
+                <title>
+                    Vizualizace dat, dokumentace, správa stránek a wiki
+                </title>
+                <description>
+                    <para>Mým úkolem bylo vymyslet jakým způsobem graficky reprezentovat příslušna data vyjmuta z databáze. Hledal jsem tedy technologie, které umožňují tvořit a vizualizovat stromy. Nejrozumnější způsob bylo najít JavaScript knihovnu, která by tyto problémy řešila.
+                    </para>
+                    <para>Objevil jsem knihovnu GoJS, která slouží k implementaci vlastních interaktivním diagramů. Mimojiné také umožňuje funkce jako jsou drag-and-drop, copy-and-paste, in-place upravování a jiné. Knihovna není závislá na ostatních technologii. Skripty se interpretují čistě v prohlížeči a diagramy se renderují do HTML5 Canvas elementů nebo SVG.</para>
+                    <para>Diagram typu "rodinný strom" byl již prezentován jako "genogram". Tuto šablonu jsem poupravil pro potřeby naší aplikace.</para>
+                </description>
+            </section>
+            <section>
+                <author>Nikola Šedivcová</author>
+                <title>Backend - Data Access Layer, Autentizace</title>
+                <description>
+                    <para>
+                        Aplikaci jsme se rozhodli dělat pomocí frameworku ASP.NET MVC, rozdělili jsme ji, jak bývá u tohoto frameworku zvykem, do 3 vrstev - Data Access Layer, Bussiness Layer, Presentation Layer (dál jenom DAL, BL, PL). Na starost jsem měla (společně s Danem) první dvě vrstvy a část vrstvy třetí.
+                    </para>
+                    <para>
+                        Pro potřeby autentizace byl využit systém ASP.NET Identity, který umožňuje registraci a následný login uživatelů, vytváření rolí, obnovu zapomenutého hesla, přihlašování pomocí Facebooku/Google+/atp. Pro potřeby naší aplikace jsme využili pouze registraci a login, ale díky použití ASP.NET Identity je možné snadné rozšiření, například přihlášení pomocí externích služeb.
+                    </para>
+                    <para>
+                        Pro tvorbu vrstvy první (DAL) jsem využila Entity Framework Code First. Tato vrstva obsahuje několik entit, na jejichž základě se vytvoří databáze a příslušné tabulky.
+                    </para>
+                </description>
+            </section>
+        </chapter>
+    </book>
