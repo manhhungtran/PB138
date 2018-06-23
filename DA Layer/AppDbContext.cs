@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using DA_Layer.Entities;
 using DA_Layer.IdentityEntities;
 using Microsoft.AspNet.Identity.EntityFramework;
